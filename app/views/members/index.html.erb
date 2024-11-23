@@ -1,0 +1,59 @@
+<nav class="bg-gray-800">
+  <div class="">
+    <div class="relative flex h-16 items-center justify-between">
+      
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        
+        <div class="hidden sm:ml-6 sm:block">
+          <p class="rounded-md px-3 py-2 font-medium text-gray-300 font-bold text-2xl">Members</p>
+        </div>
+      </div>
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+      <%= link_to new_member_path, class: "inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold text-sx uppercase rounded shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 rounded-2xl", style:'line-height: 1rem; margin-right: 20px;' do %> <i class="fa-solid fa-plus mr-2"></i> New Member <% end %>
+      </div>
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold uppercase rounded shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 rounded-2xl', style:'line-height: 1rem; margin-right: 20px;' %> 
+      </div>
+    </div>
+  </div>
+
+</nav>
+<div>
+<div class="overflow-x-auto">
+  <table class="min-w-full table-auto border-collapse">
+    <thead class="bg-gray-200 border-b border-black">
+      <tr class=" border-b border-black">
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">SI No.</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of Beneficiary</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of family members</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Present address</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Permanent address</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Polling station</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Type of assistance provided (Amount)</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">provided through whom (Leader)</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Mobile number</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Election Epic No.</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">House No.</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @members.each_with_index do |member, index| %>
+        <tr class="border-t hover:bg-gray-100 border-b border-black">
+          <td class="px-4 py-2 text-center border-r border-black"><%= index + 1 %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.username %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.family_members_name %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.present_address %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.permanent_address %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.polling_station %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.amount %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.leader %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.mobile_number %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.election_number %></td>
+          <td class="px-4 py-2 text-center border-r border-black"><%= member.house_number %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

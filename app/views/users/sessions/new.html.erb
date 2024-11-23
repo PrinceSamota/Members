@@ -1,0 +1,88 @@
+<div class="w-full h-screen flex item-start">
+    <div class="relative w-1/2 flex h-full flex-col">
+      <%= image_tag 'login.jpeg', alt: 'Logo', class:'w-full h-full' %>
+    </div>
+   <div class="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between">
+         
+        <h1 class="text-xl text-[#060606] font-semibold alert"></h1>
+
+          <div class="w-full flex flex-col pt-16">
+            <div class="w-full flex flex-col mb-1">
+                <h3 class="text-3xl font-semibold mb-4">Login</h3>
+                <p class=" mb-2 text-1xl">Welcome Back! Please enter your details.</p>
+               
+            </div>
+
+
+            <% if alert %>
+              <div class="border border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                <p class="alert" style="color: red;"> <%= alert %> </p>
+              </div>    
+            <% end %>
+
+                <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="w-full flex flex-col">
+                      <%= f.email_field :email, placeholder:'Email', autocomplete: "email", class:'w-full text-black py-4 my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.password_field :password, placeholder:'Password', autocomplete: "current-password", class:'w-full text-black py-4 my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+                    <div class="w-full flex items-center justify-between">
+
+                      <div class="w-full flex pt-8">
+                          <% if devise_mapping.rememberable? %>
+                              <%= f.check_box :remember_me, class:'w-4 h-4 mr-2', style:'outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00;' %>
+                              <%= f.label :remember_me, class:'text-sm' %>
+                          <% end %>
+                      </div>
+                      <p class="text-sm font-medium whitespace-nowrap cursor-pointer underline underline-offset-2 pt-8">
+                        <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+                        <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+                        <% end %>
+                      </p>
+                    </div>
+                    <div class="w-full flex flex-col my-4 pt-8">
+                       <%= f.submit "Log in", class:'w-full text-white bg-[#060606] rounded-md p-4 text-center flex item-center justify-center cursor-pointer' %>
+                      </div>
+                <% end %>
+          
+
+            <div class="w-full flex items-center justify-center" style="margin-top: 10%">
+                  <p class="text-sm font-normal text-[#060606]">
+                       
+                      <span class="font-semibold underline underline-offset-2 cursor-pointer">
+                        <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+                         <br />
+                        <% end %> 
+                      </span>
+                  </p>
+             </div>
+
+
+   </div>
+</div>
+
+<!-- <h2>Log in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password" %>
+  </div>
+
+  <% if devise_mapping.rememberable? %>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%#= render "users/shared/links" %> -- >

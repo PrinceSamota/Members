@@ -1,0 +1,74 @@
+<div class="w-full h-screen flex item-start">
+    <div class="relative w-1/2 flex h-full flex-col">
+      <%= image_tag 'login.jpeg', alt: 'Logo', class:'w-full h-full' %>
+    </div>
+   <div class="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between" style="padding-top:10px;">
+         
+       
+
+          <div class="w-full flex flex-col ">
+             <div class="grid grid-cols-2 gap-5">
+                  <div class="w-full flex flex-col mb-2 mt-6">
+                      <p class=" mb-2 text-1xl font-semibold"> Please enter member details.</p>
+                  </div>
+                   
+                  <% if member.errors.any? %>
+                    <div class="border border-red-400 rounded-b bg-red-100 px-4 py-3 text-red-700">
+                      <ul>
+                        <% member.errors.each do |error| %>
+                          <li><%= error.full_message %></li>
+                        <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+             </div>
+
+
+            <%#= render "users/shared/error_messages", resource: resource %>
+
+
+               <%= form_with(model: member, class: "contents") do |f| %>
+                    <div class="w-full flex flex-col">
+
+                    <div class="grid grid-cols-2 gap-5">
+                      <%= f.text_field :username, placeholder:'Username', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.number_field :mobile_number, placeholder:'Mobile number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                      <%= f.text_field :present_address, placeholder:'Present address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.text_field :permanent_address, placeholder:'Permanent address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                      <%= f.text_field :family_members_name, placeholder:'Family members name', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.text_field :polling_station, placeholder:'Polling station', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                      <%= f.number_field :amount, placeholder:'Amount',class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.text_field :leader, placeholder:'Leader name', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                      <%= f.number_field :election_number, placeholder:'Election number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                      <%= f.number_field :house_number, placeholder:'House number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    </div>
+            
+                    <div class="w-full flex flex-col my-2 pt-8">
+                       <%= f.submit "Create member", class:'w-full text-white bg-[#060606] rounded-md p-4 text-center flex item-center justify-center cursor-pointer' %>
+                    </div>
+                    <div class="w-full flex flex-col my-2 pt-8">
+                       <%= link_to "Back to members", members_path, class:'w-full text-white bg-[#060606] rounded-md p-4 text-center flex item-center justify-center cursor-pointer' %>
+                    </div>
+              <% end %>
+                
+                
+
+
+   </div>
+</div>
+
+
