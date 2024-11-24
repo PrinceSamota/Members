@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class="bg-gray-800" style="position: fixed; top: 0; left: 0; width: 100%; ">
   <div class="">
     <div class="relative flex h-16 items-center justify-between">
       
@@ -19,12 +19,26 @@
   </div>
 
 </nav>
+
+<div class="bg-gray-400" style="position: fixed; top: 60px; left: 0; width: 100%; height:65px;" >
+  <div class="bg-gray-400">
+      <%= search_form_for @q do |f| %>
+        <div class="" style="right:40px; position: absolute; top:10px;">
+          <%= f.text_field :search_cont, placeholder:'Search......', class:"rounded-3xl border w-96", style:"border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black"%> 
+            <button type="submit" class="rounded-r-3xl border border-green-600 bg-green-600 items-center" style="position: absolute; right:-2px; width:70px; height:40px; color:white;"><i class="material-icons" style="padding-top:5px;">search</i></button>
+        </div>
+        <div class="hidden sm:ml-6 sm:block">
+          <p class="rounded-md px-3 py-2 font-medium  font-bold text-2xl">Members List</p>
+        </div>
+      <% end %>
+  </div>
+</div> 
 <div>
-<div class="overflow-x-auto">
+<div class="" style="margin-top:125px;">
   <table class="min-w-full table-auto border-collapse">
-    <thead class="bg-gray-200 border-b border-black">
+    <thead class="bg-gray-200 border-b border-black"  style="position: sticky; top: 125px;">
       <tr class=" border-b border-black">
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">SI No.</th>
+        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black" >SI No.</th>
         <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of Beneficiary</th>
         <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of family members</th>
         <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Present address</th>
@@ -39,7 +53,7 @@
     </thead>
     <tbody>
       <% @members.each_with_index do |member, index| %>
-        <tr class="border-t hover:bg-gray-100 border-b border-black">
+        <tr class="border-t hover:bg-gray-100 border-b border-black" ">
           <td class="px-4 py-2 text-center border-r border-black"><%= index + 1 %></td>
           <td class="px-4 py-2 text-center border-r border-black"><%= member.username %></td>
           <td class="px-4 py-2 text-center border-r border-black"><%= member.family_members_name %></td>
