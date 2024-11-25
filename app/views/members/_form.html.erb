@@ -2,14 +2,14 @@
     <div class="relative w-1/2 flex h-full flex-col">
       <%= image_tag 'login.jpeg', alt: 'Logo', class:'w-full h-full' %>
     </div>
-   <div class="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between" style="padding-top:10px;">
+   <div class="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between" >
          
        
 
-          <div class="w-full flex flex-col ">
+          <div class="w-full flex flex-col" style="margin-top:0px;">
              <div class="grid grid-cols-2 gap-5">
-                  <div class="w-full flex flex-col mb-2 mt-6">
-                      <p class=" mb-2 text-1xl font-semibold"> Please enter member details.</p>
+                  <div class="w-full flex flex-col mb-2 mt-14">
+                      <p class=" text-2xl font-semibold"> Please enter member details.</p>
                   </div>
                    
                   <% if member.errors.any? %>
@@ -28,7 +28,7 @@
 
 
                <%= form_with(model: member, class: "contents") do |f| %>
-                    <div class="w-full flex flex-col">
+                    <div class="w-full flex flex-col" style="margin-top:0px;">
 
                     <div class="grid grid-cols-2 gap-5">
                       <%= f.text_field :username, placeholder:'Username', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
