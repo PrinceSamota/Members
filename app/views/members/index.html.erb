@@ -1,73 +1,94 @@
-<nav class="bg-gray-800" style="position: fixed; top: 0; left: 0; width: 100%; ">
+<div class="bg-gray-100">
+<nav class="bg-white border-b border-gray-400" style="position: fixed; top: 0; left: 0; width: 100%; height:90px;">
   <div class="">
     <div class="relative flex h-16 items-center justify-between">
       
       <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
         
-        <div class="hidden sm:ml-6 sm:block">
-          <p class="rounded-md px-3 py-2 font-medium text-gray-300 font-bold text-2xl">Members</p>
+        <div class="hidden sm:ml-6 sm:block pt-6">
+          <p class="rounded-md px-3 py-2 font-bold text-2xl">Members</p>
         </div>
       </div>
+      <!-- <%= search_form_for @q do |f| %>
+        <div class="" style="right:450px; position: absolute; top:20px;">
+          <%= f.text_field :search_cont, placeholder:'Search......', class:"rounded-3xl border w-96", style:" outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black"%> 
+            <button type="submit" class="rounded-r-3xl  items-center" style="position: absolute; right:-2px; width:50px; height:35px; color:black; border-left:1px solid black; margin-top:3px; "><i class="material-icons" style="padding-top:5px; padding-right:5px;">search</i></button>
+        </div>
+      <% end %> -->
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-      <%= link_to new_member_path, class: "inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold text-sx uppercase rounded shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 rounded-2xl", style:'line-height: 1rem; margin-right: 20px;' do %> <i class="fa-solid fa-plus mr-2"></i> New Member <% end %>
+      <%= link_to new_member_path, class: "font-semibold text-red-600", style:'line-height: 1rem; margin-right: 30px; margin-top:20px;' do %><i class="material-icons">person_add</i> <% end %>
       </div>
 
-      <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'inline-block px-6 py-2.5 bg-blue-600 text-white font-semibold uppercase rounded shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-opacity-50 rounded-2xl', style:'line-height: 1rem; margin-right: 20px;' %> 
+      <div class="absolute inset-y-0 right-0 flex items-center pr-4 pt-3 sm:static sm:inset-auto sm:ml-6 " style="margin-top:10px;">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'text-red-600 uppercase font-bold', style:'line-height: 1rem; margin-right: 20px;' %> 
       </div>
     </div>
   </div>
 
 </nav>
 
-<div class="bg-gray-400" style="position: fixed; top: 60px; left: 0; width: 100%; height:65px;" >
+<!-- <div class="bg-gray-400" style="position: fixed; top: 60px; left: 0; width: 100%; height:65px;" >
   <div class="bg-gray-400">
       <%= search_form_for @q do |f| %>
         <div class="" style="right:40px; position: absolute; top:10px;">
           <%= f.text_field :search_cont, placeholder:'Search......', class:"rounded-3xl border w-96", style:"border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black"%> 
             <button type="submit" class="rounded-r-3xl border border-green-600 bg-green-600 items-center" style="position: absolute; right:-2px; width:70px; height:40px; color:white;"><i class="material-icons" style="padding-top:5px;">search</i></button>
         </div>
-        <div class="hidden sm:ml-6 sm:block">
-          <p class="rounded-md px-3 py-2 font-medium  font-bold text-2xl">Members List</p>
+        <div class="hidden sm:ml-6 sm:block pt-6">
+          <p class="rounded-md px-3 py-2 font-medium  font-bold text-1xl">Members List</p>
         </div>
       <% end %>
   </div>
-</div> 
+</div>  -->
+<div class="bg-gray-100 w-full h-12" style="position: sticky;top: 90px;">
+</div>
 <div>
-<div class="" style="margin-top:125px;">
-  <table class="min-w-full table-auto border-collapse">
-    <thead class="bg-gray-200 border-b border-black"  style="position: sticky; top: 125px;">
-      <tr class=" border-b border-black">
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black" >SI No.</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of Beneficiary</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Name of family members</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Present address</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Permanent address</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Polling station</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Type of assistance provided (Amount)</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">provided through whom (Leader)</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Mobile number</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">Election Epic No.</th>
-        <th class="px-4 py-2 font-semibold text-gray-700 border-r border-black">House No.</th>
+<div class="pl-24 pr-24 " style="margin-top:90px;">
+      <div class="bg-white h-20 rounded-t-2xl border" style="position: sticky;top: 138px; box-shadow: 0px 1px 12px 15px lightgray">
+            <div class="hidden sm:ml-6 sm:block pt-4">
+                <p class="rounded-md px-3 py-2 font-bold text-2xl">Members list</p>
+            </div>
+            <%= search_form_for @q do |f| %>
+                <div class="" style="right:50px; position: absolute; top:20px;">
+                  <%= f.text_field :search_cont, placeholder:'Search Members', class:"rounded w-96 bg-gray-100 border-gray-100 border", style:" outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) #ffffff00; border-color:#ffffff00; "%> 
+                    <button type="submit" class="rounded-r-3xl  items-center" style="position: absolute; right:-2px; width:50px; height:35px; color:black; margin-top:3px; "><i class="material-icons" style="padding-top:5px; padding-right:5px;">search</i></button>
+                </div>
+            <% end %>
+      </div>
+  <table class="min-w-full table-auto border-collapse" style="box-shadow: 0px 1px 12px 15px lightgray">
+    <thead class="bg-gray-100 border-b border-black"  style="position: sticky; top: 217px;">
+      <tr class="border-b border-gray-400 border-t font-bold">
+        <th class="px-4 py-2 border-black" >SI No.</th>
+        <th class="px-4 py-2 border-black">Name of Beneficiary</th>
+        <th class="px-4 py-2 border-black">Name of family members</th>
+        <th class="px-4 py-2 border-black">Present address</th>
+        <th class="px-4 py-2 border-black">Permanent address</th>
+        <th class="px-4 py-2 border-black">Polling station</th>
+        <th class="px-4 py-2 border-black">Type of assistance provided (Amount)</th>
+        <th class="px-4 py-2 border-black">Provided through whom (Leader)</th>
+        <th class="px-4 py-2 border-black">Mobile number</th>
+        <th class="px-4 py-2 border-black">Election Epic No.</th>
+        <th class="px-4 py-2 border-black">House No.</th>
       </tr>
     </thead>
     <tbody>
       <% @members.each_with_index do |member, index| %>
-        <tr class="border-t hover:bg-gray-100 border-b border-black" ">
-          <td class="px-4 py-2 text-center border-r border-black"><%= index + 1 %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.username %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.family_members_name %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.present_address %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.permanent_address %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.polling_station %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.amount %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.leader %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.mobile_number %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.election_number %></td>
-          <td class="px-4 py-2 text-center border-r border-black"><%= member.house_number %></td>
+        <tr class="border-t hover:bg-gray-100 bg-white border-b border-black">
+          <td class="px-4 py-2 text-center  border-black"><%= index + 1 %></td>
+          <td class="px-4 py-2 text-center  border-black font-bold"><%= member.username %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.family_members_name %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.present_address %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.permanent_address %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.polling_station %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.amount %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.leader %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.mobile_number %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.election_number %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= member.house_number %></td>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
 </div>
 </div>
