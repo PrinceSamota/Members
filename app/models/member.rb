@@ -6,7 +6,7 @@ class Member < ApplicationRecord
     validates :polling_station, presence: true
     validates :amount, presence: true
     validates :leader, presence: true
-    validates :mobile_number, presence: true
+    validates :mobile_number, length: { minimum: 10, maximum: 10 },presence: true
     validates :election_number, presence: true
     validates :house_number, presence: true
 

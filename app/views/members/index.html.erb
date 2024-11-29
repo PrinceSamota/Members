@@ -1,4 +1,4 @@
-<div class="bg-gray-100">
+<div class="bg-gray-100" style="height:100vh">
 <nav class="bg-white border-b border-gray-400" style="position: fixed; top: 0; left: 0; width: 100%; height:90px;">
   <div class="">
     <div class="relative flex h-16 items-center justify-between">
@@ -16,7 +16,7 @@
         </div>
       <% end %> -->
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-      <%= link_to new_member_path, class: "font-semibold text-red-600", style:'line-height: 1rem; margin-right: 30px; margin-top:20px;' do %><i class="material-icons">person_add</i> <% end %>
+      <%= link_to new_member_path, class: "font-semibold text-red-600 hover:bg-transparent hover:text-red-600", style:'line-height: 1rem; margin-right: 30px; margin-top:20px; border:none;' do %><i class="material-icons">person_add</i> <% end %>
       </div>
 
       <div class="absolute inset-y-0 right-0 flex items-center pr-4 pt-3 sm:static sm:inset-auto sm:ml-6 " style="margin-top:10px;">
@@ -48,12 +48,17 @@
             <div class="hidden sm:ml-6 sm:block pt-4">
                 <p class="rounded-md px-3 py-2 font-bold text-2xl">Members list</p>
             </div>
+            
             <%= search_form_for @q do |f| %>
-                <div class="" style="right:50px; position: absolute; top:20px;">
+                <div class="" style="right:400px; position: absolute; top:20px;">
                   <%= f.text_field :search_cont, placeholder:'Search Members', class:"rounded w-96 bg-gray-100 border-gray-100 border", style:" outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width)) #ffffff00; border-color:#ffffff00; "%> 
                     <button type="submit" class="rounded-r-3xl  items-center" style="position: absolute; right:-2px; width:50px; height:35px; color:black; margin-top:3px; "><i class="material-icons" style="padding-top:5px; padding-right:5px;">search</i></button>
                 </div>
             <% end %>
+
+            <div class="hover:bg-transparent hover:text-red-600" style="right:50px; position: absolute; top:30px; ">
+            <%= link_to "Download Member List", download_csv_memberdownloads_path, class: "btn btn-primary hover:bg-transparent hover:text-sky-800", style:"border:none;" %>
+            </div>
       </div>
   <table class="min-w-full table-auto border-collapse" style="box-shadow: 0px 1px 12px 15px lightgray">
     <thead class="bg-gray-100 border-b border-black"  style="position: sticky; top: 217px;">
@@ -91,4 +96,9 @@
   </table>
 </div>
 </div>
+    <div style=" padding:0 25% 0 30%">
+    <div style="padding-top:35px; padding-bottom:35px;">
+    <%= will_paginate @members, class: "pagination" %>
+    </div>
+    </div>
 </div>

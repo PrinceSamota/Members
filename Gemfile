@@ -26,6 +26,12 @@ gem 'font-awesome-sass'
 
 gem 'material-icons-rails'
 
+gem 'will_paginate', '~> 3.3'
+
+gem 'axlsx_rails'
+
+gem 'axlsx'
+
 gem 'ransack'
 
 gem 'devise', '~> 4.9', '>= 4.9.4'
