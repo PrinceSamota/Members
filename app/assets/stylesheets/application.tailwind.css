@@ -17,3 +17,35 @@
 input:focus, button:focus, textarea:focus {
   outline: none;
 }
+
+  a{
+    border: 1px solid black;
+    font-weight:bold;
+    padding: 3px 6px;
+  }
+  a:hover{
+    background-color: black;
+    color: white;
+  }
+
+.previous_page{
+  font-weight:bold;
+  padding-right: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 3px 6px;
+}
+.next_page{
+  font-weight:bold;
+  padding-left: 10px;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 3px 6px;
+}
+.current{
+  border: 1px solid black;
+  font-weight:bold;
+  padding: 3px 6px;
+  color: white;
+  background-color: black;
+}
