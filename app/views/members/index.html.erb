@@ -56,8 +56,8 @@
                 </div>
             <% end %>
 
-            <div class="hover:bg-transparent hover:text-red-600" style="right:50px; position: absolute; top:30px; ">
-            <%= link_to "Download Member List", download_csv_memberdownloads_path, class: "btn btn-primary hover:bg-transparent hover:text-sky-800", style:"border:none;" %>
+            <div style="right:50px; position: absolute; top:30px; ">
+            <%= link_to "Download List", download_csv_memberdownloads_path, class: "btn btn-primary hover:bg-sky-600 hover:text-black bg-sky-500 rounded-xl border border-sky-500 p-1.5 px-1.5 font-semibold" %> 
             </div>
       </div>
   <table class="min-w-full table-auto border-collapse" style="box-shadow: 0px 1px 12px 15px lightgray">
@@ -96,8 +96,8 @@
   </table>
 </div>
 </div>
-    <div style=" padding:0 25% 0 30%">
-    <div style="padding-top:35px; padding-bottom:35px;">
+    <div style="display: flex; justify-content: center; align-items: center; ">
+    <div style=" padding-top:30px;">
     <%= will_paginate @members, class: "pagination" %>
     </div>
     </div>
