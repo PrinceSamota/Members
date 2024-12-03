@@ -28,7 +28,7 @@ gem 'material-icons-rails'
 
 gem 'will_paginate', '~> 3.3'
 
-gem 'axlsx_rails'
+gem 'caxlsx_rails'
 
 gem 'axlsx'
 
