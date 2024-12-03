@@ -20,13 +20,6 @@ test:
   <<: *default
   database: storage/test.sqlite3
 
-production:
-  <<: *default
-  database: <%= ENV['DATABASE_URL'] %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
-  host: <%= ENV['DATABASE_HOST'] %>
-
 
 # Store production database in the storage/ directory, which by default
 # is mounted as a persistent Docker volume in config/deploy.yml.
