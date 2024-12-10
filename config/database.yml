@@ -96,3 +96,12 @@ production:
     <<: *primary_production
     database: project_production_cable
     migrations_paths: db/cable_migrate
+
+
+development:
+  adapter: postgresql
+  database: project_development
+  username: prince
+  password: 123
+  host: localhost
+  port: 5432
