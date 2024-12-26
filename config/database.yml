@@ -85,6 +85,7 @@ production:
     username: <%= ENV['DB_USERNAME'] %>
     password: <%= ENV['DB_PASSWORD'] %>
     host: <%= ENV['DB_HOST'] %>
+    port: 5432
   cache:
     <<: *primary_production
     database: project_production_cache
