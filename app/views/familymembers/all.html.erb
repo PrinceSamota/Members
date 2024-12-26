@@ -1,0 +1,59 @@
+<div class="bg-gray-100" style="height:100vh">
+<nav class="bg-white border-b border-gray-400" style="position: fixed; top: 0; left: 0; width: 100%; height:90px;">
+  <div class="">
+    <div class="relative flex h-16 items-center justify-between">
+      
+      <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+        
+        <div style="left:20px; position: absolute; top:25px; ">  
+         <%= link_to root_path, class: "btn btn-primary rounded-3xl hover:bg-white hover:text-red-600 text-red-600 border-none p-1.5 px-1.5 font-semibold", style:"font-size:18px;" do %><i class="material-icons" style="top:5px; position: relative;">arrow_back</i>Back <% end %>
+        </div>
+      </div>
+
+      
+
+      
+     
+
+      <div class="absolute inset-y-0 right-0 flex items-center pr-4 pt-3 sm:static sm:inset-auto sm:ml-6 " style="margin-top:10px;">
+          <%= button_to "Logout", destroy_user_session_path, method: :delete, class:'text-red-600 uppercase font-bold', style:'line-height: 1rem; margin-right: 20px;' %> 
+      </div>
+    </div>
+  </div>
+
+</nav>
+<div class="pl-24 pr-24 " style="padding-top:150px;">
+  <table class="min-w-full table-auto border-collapse" style="box-shadow: 0px 0px 15px 3px lightgray; border-radius: 22px; overflow: hidden;">
+    <thead class="bg-gray-100 rounded-2xl border" style="position: sticky; top:0px;">
+      <tr class="border-b font-bold">
+        <th class="px-4 py-2 border-black">SI No.</th>
+        <th class="px-4 py-2 border-black">Family member name</th>
+        <th class="px-4 py-2 border-black">Present address</th>
+        <th class="px-4 py-2 border-black">Permanent address</th>
+        <th class="px-4 py-2 border-black">Polling station</th>
+        <th class="px-4 py-2 border-black">Relation</th>
+        <th class="px-4 py-2 border-black">Mobile number</th>
+        <th class="px-4 py-2 border-black">Election Epic No.</th>
+        <th class="px-4 py-2 border-black">House No.</th>
+        <th class="px-4 py-2 border-black">Leader Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @familymembers.each_with_index do |familymember, index| %>
+        <tr class="border-t hover:bg-gray-100 bg-white">
+          <td class="px-4 py-2 text-center  border-black"><%= index + 1 %></td>
+          <td class="px-4 py-2 text-center  border-black font-bold"><%= familymember.name %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.present_address %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.permanent_address %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.polling_station %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.relation %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.mobile_number %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.election_number %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.house_number %></td>
+          <td class="px-4 py-2 text-center  border-black"><%= familymember.member.username %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+</div>

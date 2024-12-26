@@ -1,0 +1,83 @@
+<div class="w-full h-screen flex item-start">
+    <div class="relative w-1/2 flex h-full flex-col">
+      <%= image_tag 'family.jpg', alt: 'Logo', class:'w-full h-full' %>
+    </div>
+   <div class="w-1/2 h-full bg-[#f5f5f5] flex flex-col p-20 justify-between" >
+         
+       
+
+          <div class="w-full flex flex-col" style="margin-top:0px;">
+             <div class="grid grid-cols-2 gap-5">
+                  <div class="w-full flex flex-col mb-2 mt-14">
+                      <p class=" text-2xl font-semibold"> Please enter family member details.</p>
+                  </div>
+             </div>
+
+
+            <%#= render "users/shared/error_messages", resource: resource %>
+
+
+            <%= form_with model: [@family_leader, @family_member], local: true, class: "contents" do |f| %>
+                    <div class="w-full flex flex-col" style="margin-top:0px;">
+
+                    <div class="grid grid-cols-2 gap-5">
+                     <%= f.text_field :name, placeholder:'name', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                     <%= f.number_field :mobile_number, placeholder:'Mobile number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                     <%= f.text_field :permanent_address, placeholder:'permanent_address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                     <%= f.text_field :present_address, placeholder:'present_address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                     <%= f.text_field :polling_station, placeholder:'polling_station', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                     <%= f.text_field :relation, placeholder:'relation', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-5">
+                     <%= f.number_field :election_number, placeholder:'election_number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                     <%= f.number_field :house_number, placeholder:'house_numberr', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+                    </div>
+
+                    </div>
+            
+                    <div class="w-full flex flex-col my-2 pt-8">
+                       <%= f.submit class:'w-full text-white bg-[#060606] rounded-md p-4 text-center flex item-center justify-center cursor-pointer' %>
+                    </div>
+                    
+              <% end %>
+                
+                
+
+
+   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- <%= form_with model: [@family_leader, @family_member], local: true, class: "contents" do |f| %>
+  
+  <%= f.text_field :name, placeholder:'name', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+  <%= f.number_field :mobile_number, placeholder:'Mobile number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+
+  <%= f.text_field :permanent_address, placeholder:'permanent_address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+  <%= f.text_field :present_address, placeholder:'present_address', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+
+  <%= f.text_field :polling_station, placeholder:'polling_station', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+  <%= f.text_field :relation, placeholder:'relation', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+
+  <%= f.number_field :election_number, placeholder:'election_number', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+  <%= f.number_field :house_number, placeholder:'house_numberr', class:' text-black my-4 bg-transparent border-b border-black outline-none focus:outline-none', style:'border-top:none;border-left:none;border-right:none; outline: 2px solid transparent; --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) #ffffff00; border-color:black' %>
+
+  <div class="inline">
+    <%= f.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>-->

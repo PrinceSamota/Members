@@ -4,11 +4,12 @@ class MembersController < ApplicationController
   # GET /members or /members.json
   def index
     @q = Member.ransack(params[:q])
-    @members = @q.result.paginate(page: params[:page], per_page: 10)
+    @members = @q.result.includes(:familymember).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /members/1 or /members/1.json
   def show
+    @member = Member.find(params[:id])
   end
 
   # GET /members/new
