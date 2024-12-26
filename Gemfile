@@ -27,7 +27,7 @@ gem 'font-awesome-sass'
 
 gem 'material-icons-rails'
 
-gem 'will_paginate', '~> 3.3'
+gem 'will_paginate', '~> 4.0'
 
 gem 'caxlsx_rails'
 
